@@ -1,0 +1,5 @@
+Flask
+Pillow
+matplotlib
+gunicorn
+pytest

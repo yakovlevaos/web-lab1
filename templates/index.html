@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение изображения</title>
+</head>
+<body>
+    <h2>Загрузите изображение и настройте параметры</h2>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+        <label>Изображение:</label><br>
+        <input type="file" name="image" required><br><br>
+
+        <label>Направление:</label>
+        <select name="direction">
+            <option value="horizontal">Горизонтально</option>
+            <option value="vertical">Вертикально</option>
+        </select><br><br>
+
+        <label>Ширина полос (в пикселях):</label>
+        <input type="number" name="stripe_width" value="10" min="1"><br><br>
+
+        <label>Капча: {{ captcha_question }}</label>
+        <input type="text" name="captcha_answer" required>
+        <input type="hidden" name="captcha_expected" value="{{ captcha_expected }}"><br><br>
+
+        <input type="submit" value="Обработать">
+    </form>
+
+    {% if original_image %}
+        <h3>Исходное изображение</h3>
+        <img src="{{ original_image }}" width="300">
+
+        <h3>Результат</h3>
+        <img src="{{ result_image }}" width="300">
+
+        <h3>Гистограмма</h3>
+        <img src="{{ hist_image }}" width="300">
+    {% endif %}
+</body>
+</html>
