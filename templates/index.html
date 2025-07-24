@@ -29,12 +29,7 @@
       <input type="number" name="stripe_width" value="10" min="1" /><br /><br />
 
       <label>Капча: {{ captcha_question }}</label>
-      <input type="text" name="captcha_answer" required />
-      <input
-        type="hidden"
-        name="captcha_expected"
-        value="{{ captcha_expected }}"
-      /><br /><br />
+      <input type="text" name="captcha_answer" required /><br /><br />
 
       <input type="submit" value="Обработать" />
     </form>
