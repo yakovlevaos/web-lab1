@@ -13,7 +13,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 app = Flask(__name__)
-app.secret_key = 'твой_секретный_ключ_здесь'  # обязательно для работы с сессиями
+app.secret_key = 'твой_секретный_ключ_здесь'
 
 # Папка для загрузок — в static/uploads
 UPLOAD_FOLDER = 'static/uploads'
