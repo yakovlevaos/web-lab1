@@ -9,6 +9,12 @@ matplotlib.use('Agg')  # Используем бэкенд matplotlib для с�
 import matplotlib.pyplot as plt
 import random
 
+UPLOAD_FOLDER = 'static/uploads'
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # создаём папку при загрузке модуля
+
+app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 app = Flask(__name__)
 UPLOAD_FOLDER = 'static/uploads'  # Папка для сохранения загруженных файлов
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -87,8 +93,4 @@ def swap_stripes(image_array, direction, stripe_width):
                     img[:, i + stripe_width:i + stripe_width * 2], img[:, i:i + stripe_width].copy()
 
     return img  # возвращаем обработанный массив
-
-if __name__ == '__main__':
-    os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # создаем папку для загрузок, если ее нет
-    app.run(debug=True)  # запускаем приложение в режиме отладки
 
